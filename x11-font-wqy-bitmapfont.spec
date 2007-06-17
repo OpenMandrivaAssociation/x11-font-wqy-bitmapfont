@@ -1,6 +1,6 @@
 %define origname wqy-bitmapfont
 %define version 1.0
-%define snapshotdate 20070520
+%define snapshotdate 20070617
 
 # fwang: whether we are using west part or east part of the source.
 # check here: http://wenq.org/index.cgi?BitmapSong#nightly_build_NB
@@ -8,7 +8,7 @@
 
 # fwang: whether we should use cjk parts only
 # if yes, wqy bitmapsong could be treated as monospace font
-%define cjk_part_only 1
+%define cjk_part_only 0
 
 Name:	x11-font-%{origname}
 Version:	%{version}
