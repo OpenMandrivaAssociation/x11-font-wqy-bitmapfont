@@ -12,7 +12,7 @@
 
 Name:	x11-font-%{origname}
 Version:	%{version}
-Release:	%mkrel -c %snapshotdate 2
+Release:	%mkrel -c %snapshotdate 3
 Summary:	WenQuanYi Bitmap Song
 Group:	System/Fonts/X11 bitmap
 URL:	http://www.wenq.org
@@ -75,7 +75,7 @@ install -m 0644 *.conf %{buildroot}/%_sysconfdir/fonts/conf.d
 
 mkdir -p %{buildroot}%_sysconfdir/X11/fontpath.d/
 ln -s ../../..%_datadir/fonts/wqy \
-    %{buildroot}%_sysconfdir/X11/fontpath.d/wqy:pri=50
+    %{buildroot}%_sysconfdir/X11/fontpath.d/wqy-bitmapfont:pri=50
 
 %post
 mkfontscale %_datadir/fonts/wqy
@@ -93,6 +93,6 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc README ChangeLog AUTHORS COPYING
-%_sysconfdir/X11/fontpath.d/wqy:pri=50
+%_sysconfdir/X11/fontpath.d/wqy-bitmapfont:pri=50
 %_datadir/fonts/wqy/*.pcf
 %_sysconfdir/fonts/conf.d/*.conf
