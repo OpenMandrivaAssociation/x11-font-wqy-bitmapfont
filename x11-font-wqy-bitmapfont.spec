@@ -12,7 +12,7 @@
 
 Name:	x11-font-%{origname}
 Version:	%{version}
-Release:	%mkrel -c %snapshotdate 1
+Release:	%mkrel -c %snapshotdate 2
 Summary:	WenQuanYi Bitmap Song
 Group:	System/Fonts/X11 bitmap
 URL:	http://www.wenq.org
@@ -27,8 +27,8 @@ BuildRoot:	%{_tmppath}/%{name}-root
 BuildArch:	noarch
 BuildRequires:	bdftopcf
 
-Requires(pre):	mkfontdir, mkfontscale, chkfontpath
-Requires(postun):	mkfontdir, mkfontscale, chkfontpath
+Requires(pre):	mkfontdir, mkfontscale
+Requires(postun):	mkfontdir, mkfontscale
 Requires:	fontconfig
 
 %description
@@ -73,18 +73,14 @@ install -m 0644 *.pcf %{buildroot}/%_datadir/fonts/wqy
 install -d %{buildroot}/%_sysconfdir/fonts/conf.d/
 install -m 0644 *.conf %{buildroot}/%_sysconfdir/fonts/conf.d
 
+mkdir -p %{buildroot}%_sysconfdir/X11/fontpath.d/
+ln -s ../../..%_datadir/fonts/wqy \
+    %{buildroot}%_sysconfdir/X11/fontpath.d/wqy:pri=50
+
 %post
 mkfontscale %_datadir/fonts/wqy
 mkfontdir %_datadir/fonts/wqy
 [ -x %{_bindir}/fc-cache ] && %{_bindir}/fc-cache
-if [ "$1" = "1" ]; then
-	chkfontpath -a %_datadir/fonts/wqy
-fi
-
-%preun
-if [ "$1" = "0" ]; then
-	chkfontpath -r %_datadir/fonts/wqy
-fi
 
 %postun
 mkfontscale %_datadir/fonts/wqy
@@ -97,5 +93,6 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc README ChangeLog AUTHORS COPYING
+%_sysconfdir/X11/fontpath.d/wqy:pri=50
 %_datadir/fonts/wqy/*.pcf
 %_sysconfdir/fonts/conf.d/*.conf
