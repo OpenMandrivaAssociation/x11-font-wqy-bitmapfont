@@ -1,6 +1,6 @@
 %define origname wqy-bitmapfont
 %define version 1.0
-%define snapshotdate 20070804
+%define snapshotdate 20070901
 
 # fwang: whether we are using west part or east part of the source.
 # check here: http://wenq.org/index.cgi?BitmapSong#nightly_build_NB
@@ -29,7 +29,8 @@ BuildRequires:	bdftopcf
 
 Requires(pre):	mkfontdir, mkfontscale
 Requires(postun):	mkfontdir, mkfontscale
-Requires:	fontconfig
+Requires:	fontconfig >= 2.4.2-7
+Conflicts:	fontconfig < 2.4.2-7
 
 %description
 The Wen Quan Yi bitmap font includes complete CJK Unified 
@@ -70,9 +71,6 @@ rm -fr %buildroot
 install -d %{buildroot}/%_datadir/fonts/wqy
 install -m 0644 *.pcf %{buildroot}/%_datadir/fonts/wqy
 
-install -d %{buildroot}/%_sysconfdir/fonts/conf.d/
-install -m 0644 *.conf %{buildroot}/%_sysconfdir/fonts/conf.d
-
 mkdir -p %{buildroot}%_sysconfdir/X11/fontpath.d/
 ln -s ../../..%_datadir/fonts/wqy \
     %{buildroot}%_sysconfdir/X11/fontpath.d/wqy-bitmapfont:pri=50
@@ -95,4 +93,3 @@ rm -rf %{buildroot}
 %doc README ChangeLog AUTHORS COPYING
 %_sysconfdir/X11/fontpath.d/wqy-bitmapfont:pri=50
 %_datadir/fonts/wqy/*.pcf
-%_sysconfdir/fonts/conf.d/*.conf
