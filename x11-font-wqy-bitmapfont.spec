@@ -1,6 +1,6 @@
 %define origname wqy-bitmapfont
 %define version 1.0
-%define snapshotdate 20070911
+%define snapshotdate 20071013
 
 # fwang: whether we are using west part or east part of the source.
 # check here: http://wenq.org/index.cgi?BitmapSong#nightly_build_NB
@@ -18,10 +18,6 @@ Group:	System/Fonts/X11 bitmap
 URL:	http://www.wenq.org
 Source0:	http://heanet.dl.sourceforge.net/sourceforge/wqy/%{origname}-bdf-gb18030-nightly_build.tar.gz
 Source1:	http://heanet.dl.sourceforge.net/sourceforge/wqy/%{origname}-bdf-all-nightly_build.tar.gz
-# fwang: The original Makefile doesn't fit fontconfig and qt3
-#Patch0:	%{origname}-Makefile-cjk-range.patch
-Patch1:	%{origname}-fontconfig-rule-kill-minimal-fontsize.patch
-Patch2:	%{origname}-fontconfig-rule-fit-monospace.patch
 License:	GPL
 BuildRoot:	%{_tmppath}/%{name}-root
 BuildArch:	noarch
@@ -51,11 +47,6 @@ and for Korean Hangul (UAC00 - UD7A3).
 %setup -q -T -n %{origname}-all -b 1
 %else
 %setup -q -T -n %{origname}-gb18030 -b 0
-%endif
-#%patch0 -p0
-%patch1 -p0
-%if %cjk_part_only
-%patch2 -p0
 %endif
 
 %build
