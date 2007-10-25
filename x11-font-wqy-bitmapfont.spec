@@ -60,7 +60,7 @@ and for Korean Hangul (UAC00 - UD7A3).
 rm -fr %buildroot
 
 install -d %{buildroot}/%_datadir/fonts/wqy
-install -m 0644 *.pcf %{buildroot}/%_datadir/fonts/wqy
+install -m 0644 *.pcf fonts.alias %{buildroot}/%_datadir/fonts/wqy
 
 mkdir -p %{buildroot}%_sysconfdir/X11/fontpath.d/
 ln -s ../../..%_datadir/fonts/wqy \
@@ -84,3 +84,4 @@ rm -rf %{buildroot}
 %doc README ChangeLog AUTHORS COPYING
 %_sysconfdir/X11/fontpath.d/wqy-bitmapfont:pri=50
 %_datadir/fonts/wqy/*.pcf
+%_datadir/fonts/wqy/fonts.alias
