@@ -28,6 +28,7 @@ Requires(postun):	mkfontdir, mkfontscale
 Requires:	fontconfig >= 2.4.2-7
 Conflicts:	fontconfig < 2.4.2-7
 
+%if %use_west_part
 %description
 The Wen Quan Yi bitmap font includes complete CJK Unified 
 Ideograph (U4E00 - U9FA5) glyphs at four different sizes 
@@ -41,6 +42,23 @@ insufficient "hinting" of anti-aliased Chinese fonts.
 This font also provides bitmap glyphs for Japanese 
 Hiragana (U3040 - U309F), Katakana (U30A0 - U30FF) 
 and for Korean Hangul (UAC00 - UD7A3).
+%else
+%description
+The Wen Quan Yi bitmap font is a manually fine-tuned
+multi-strike bitmap font for on-screen display of Chinese
+(traditional and simplified). It has arguably the most complete
+coverage for Chinese characters among all known open-source
+fonts, including CJK Unified Ideograph (U4E00 - U9FA5) and
+CJK Unified Ideograph Extension A (U3400 - U4DB5) glyphs
+at four different sizes (9pt-12X12 pixel, 10pt-13X13 pixel,
+11pt-15X15 pixel, 12pt-16x16 pixel) and two weights
+(medium and bold). Use this font in web pages and elsewhere
+eliminates the annoying "blurring" problems caused by
+the high stroke density of many Chinese characters and
+insufficient "hinting" of anti-aliased Chinese fonts.
+This font also provides bitmap glyphs for Basic Latin,
+Japanese Hiragana (U3040 - U309F) and Katakana (U30A0 - U30FF).
+%endif
 
 %prep
 %if %use_west_part
