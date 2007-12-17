@@ -19,7 +19,6 @@ URL:	http://www.wenq.org
 Source0:	http://heanet.dl.sourceforge.net/sourceforge/wqy/%{origname}-bdf-gb18030-nightly_build.tar.gz
 Source1:	http://heanet.dl.sourceforge.net/sourceforge/wqy/%{origname}-bdf-all-nightly_build.tar.gz
 License:	GPLv2+
-BuildRoot:	%{_tmppath}/%{name}-root
 BuildArch:	noarch
 BuildRequires:	bdftopcf
 
