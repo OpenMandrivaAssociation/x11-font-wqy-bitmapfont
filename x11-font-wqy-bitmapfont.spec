@@ -15,6 +15,7 @@ Version:	%{version}
 Release:	%mkrel -c %snapshotdate 1
 Summary:	WenQuanYi Bitmap Song
 Group:	System/Fonts/X11 bitmap
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:	http://www.wenq.org
 Source0:	http://heanet.dl.sourceforge.net/sourceforge/wqy/%{origname}-bdf-gb18030-nightly_build.tar.gz
 Source1:	http://heanet.dl.sourceforge.net/sourceforge/wqy/%{origname}-bdf-all-nightly_build.tar.gz
