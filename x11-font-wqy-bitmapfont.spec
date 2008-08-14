@@ -1,6 +1,6 @@
 %define origname wqy-bitmapfont
 %define version 1.0
-%define snapshotdate 20080526
+%define snapshotdate 20080814
 
 # fwang: whether we are using west part or east part of the source.
 # check here: http://wenq.org/index.cgi?BitmapSong#nightly_build_NB
@@ -12,7 +12,7 @@
 
 Name:	x11-font-%{origname}
 Version:	%{version}
-Release:	%mkrel -c %snapshotdate 2
+Release:	%mkrel -c %snapshotdate 1
 Summary:	WenQuanYi Bitmap Song
 Group:	System/Fonts/X11 bitmap
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
