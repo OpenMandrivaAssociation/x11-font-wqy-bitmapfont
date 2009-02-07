@@ -1,6 +1,6 @@
 %define origname wqy-bitmapfont
 %define version 1.0
-%define snapshotdate 20080910
+%define snapshotdate 20090207
 
 # fwang: whether we are using west part or east part of the source.
 # check here: http://wenq.org/index.cgi?BitmapSong#nightly_build_NB
@@ -17,8 +17,8 @@ Summary:	WenQuanYi Bitmap Song
 Group:	System/Fonts/X11 bitmap
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:	http://www.wenq.org
-Source0:	http://heanet.dl.sourceforge.net/sourceforge/wqy/%{origname}-bdf-gb18030-nightly_build.tar.gz
-Source1:	http://heanet.dl.sourceforge.net/sourceforge/wqy/%{origname}-bdf-all-nightly_build.tar.gz
+Source0:	http://wenq.org/daily/%{origname}-bdf-gb18030-nightly_build.tar.gz
+Source1:	http://wenq.org/daily/%{origname}-bdf-all-nightly_build.tar.gz
 License:	GPLv2+
 BuildArch:	noarch
 BuildRequires:	bdftopcf
