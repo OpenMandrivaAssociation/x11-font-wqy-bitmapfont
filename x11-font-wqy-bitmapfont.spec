@@ -12,7 +12,7 @@
 
 Name:	x11-font-%{origname}
 Version:	%{version}
-Release:	%mkrel -c %snapshotdate 1
+Release:	%mkrel -c %snapshotdate 2
 Summary:	WenQuanYi Bitmap Song
 Group:	System/Fonts/X11 bitmap
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -87,12 +87,10 @@ ln -s ../../..%_datadir/fonts/wqy \
 %post
 mkfontscale %_datadir/fonts/wqy
 mkfontdir %_datadir/fonts/wqy
-[ -x %{_bindir}/fc-cache ] && %{_bindir}/fc-cache
 
 %postun
 mkfontscale %_datadir/fonts/wqy
 mkfontdir %_datadir/fonts/wqy
-[ -x %{_bindir}/fc-cache ] && %{_bindir}/fc-cache 
 
 %clean
 rm -rf %{buildroot}
