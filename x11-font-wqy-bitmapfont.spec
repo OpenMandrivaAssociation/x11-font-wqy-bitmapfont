@@ -1,78 +1,37 @@
 %define origname wqy-bitmapfont
-%define version 1.0
-%define snapshotdate 20090411
-
-# fwang: whether we are using west part or east part of the source.
-# check here: http://wenq.org/index.cgi?BitmapSong#nightly_build_NB
-%define use_west_part 0
-
-# fwang: whether we should use cjk parts only
-# if yes, wqy bitmapsong could be treated as monospace font
-%define cjk_part_only 0
+%define version 1.0.0
+%define betaver RC1
 
 Name:	x11-font-%{origname}
 Version:	%{version}
-Release:	%mkrel -c %snapshotdate 2
+Release:	%mkrel -c %betaver 1
 Summary:	WenQuanYi Bitmap Song
 Group:	System/Fonts/X11 bitmap
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:	http://www.wenq.org
-Source0:	http://wenq.org/daily/%{origname}-bdf-gb18030-nightly_build.tar.gz
-Source1:	http://wenq.org/daily/%{origname}-bdf-all-nightly_build.tar.gz
+Source0:	http://downloads.sourceforge.net/project/wqy/wqy-bitmapfont/%version-%betaver/wqy-bitmapsong-pcf-%version-%betaver.tar.gz
 License:	GPLv2+
 BuildArch:	noarch
-BuildRequires:	bdftopcf
-
 Requires(pre):	mkfontdir, mkfontscale
 Requires(postun):	mkfontdir, mkfontscale
 Requires:	fontconfig >= 2.4.2-7
 Conflicts:	fontconfig < 2.4.2-7
 
-%if %use_west_part
 %description
-The Wen Quan Yi bitmap font includes complete CJK Unified 
-Ideograph (U4E00 - U9FA5) glyphs at four different sizes 
-(9pt-12X12 pixel, 10pt-13X13 pixel, 11pt-15X15 pixel, 
-12pt-16x16 pixel) and two weights (medium and bold). 
-Use of this bitmap font for on-screen display of Chinese 
-(traditional and simplified) in web pages and elsewhere 
-eliminates the annoying "blurring" problems caused by 
-the high stroke density of many Chinese characters and 
-insufficient "hinting" of anti-aliased Chinese fonts. 
-This font also provides bitmap glyphs for Japanese 
-Hiragana (U3040 - U309F), Katakana (U30A0 - U30FF) 
-and for Korean Hangul (UAC00 - UD7A3).
-%else
-%description
-The Wen Quan Yi bitmap font is a manually fine-tuned
-multi-strike bitmap font for on-screen display of Chinese
-(traditional and simplified). It has arguably the most complete
-coverage for Chinese characters among all known open-source
-fonts, including CJK Unified Ideograph (U4E00 - U9FA5) and
-CJK Unified Ideograph Extension A (U3400 - U4DB5) glyphs
-at four different sizes (9pt-12X12 pixel, 10pt-13X13 pixel,
-11pt-15X15 pixel, 12pt-16x16 pixel) and two weights
-(medium and bold). Use this font in web pages and elsewhere
+WenQuanYi bitmap fonts include all 20,932 Unicode 5.2
+CJK Unified Ideographs (U4E00 - U9FA5) and 6,582
+CJK Extension A characters (U3400 - U4DB5) at
+5 different pixel sizes (9pt-12X12, 10pt-13X13,
+10.5pt-14x14, 11pt-15X15 and 12pt-16x16 pixel).
+Use of this bitmap font for on-screen display of Chinese
+(traditional and simplified) in web pages and elsewhere
 eliminates the annoying "blurring" problems caused by
-the high stroke density of many Chinese characters and
-insufficient "hinting" of anti-aliased Chinese fonts.
-This font also provides bitmap glyphs for Basic Latin,
-Japanese Hiragana (U3040 - U309F) and Katakana (U30A0 - U30FF).
-%endif
+insufficient "hinting" of anti-aliased vector CJK fonts.
+In addition, Latin characters, Japanese Kanas and
+Korean Hangul glyphs (U+AC00~U+D7A3) are also included.
 
 %prep
-%if %use_west_part
-%setup -q -T -n %{origname}-all -b 1
-%else
-%setup -q -T -n %{origname}-gb18030 -b 0
-%endif
-
-%build
-%if %cjk_part_only
-%make cjk
-%else
-%make wqyv1
-%endif
+%setup -qn wqy-bitmapsong
 
 %install
 rm -fr %buildroot
