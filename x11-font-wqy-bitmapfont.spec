@@ -12,6 +12,7 @@ URL:	http://www.wenq.org
 Source0:	http://downloads.sourceforge.net/project/wqy/wqy-bitmapfont/%version-%betaver/wqy-bitmapsong-pcf-%version-%betaver.tar.gz
 License:	GPLv2+
 BuildArch:	noarch
+BuildRequires: fontconfig
 Requires(pre):	mkfontdir, mkfontscale
 Requires(postun):	mkfontdir, mkfontscale
 Requires:	fontconfig >= 2.4.2-7
