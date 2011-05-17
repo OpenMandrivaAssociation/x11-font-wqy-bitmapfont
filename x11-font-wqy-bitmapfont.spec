@@ -4,7 +4,7 @@
 
 Name:	x11-font-%{origname}
 Version:	%{version}
-Release:	%mkrel -c %betaver 2
+Release:	%mkrel -c %betaver 3
 Summary:	WenQuanYi Bitmap Song
 Group:	System/Fonts/X11 bitmap
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
