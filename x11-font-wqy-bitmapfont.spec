@@ -8,7 +8,7 @@ Release:	%mkrel -c %betaver 5
 Summary:	WenQuanYi Bitmap Song
 Group:	System/Fonts/X11 bitmap
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-URL:	http://www.wenq.org
+URL:	https://www.wenq.org
 Source0:	http://downloads.sourceforge.net/project/wqy/wqy-bitmapfont/%version-%betaver/wqy-bitmapsong-pcf-%version-%betaver.tar.gz
 License:	GPLv2+
 BuildArch:	noarch
